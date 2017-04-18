@@ -159,7 +159,12 @@ class S3_Uploads {
 			return $this->s3;
 		}
 
-		$params = array( 'version' => 'latest' );
+		$ssl = defined( 'S3_UPLOADS_SSL' ) ? boolval(S3_UPLOADS_SSL) : false;
+        
+        $params = array(
+            'version' => 'latest',
+            'http' => array('verify' => $ssl)
+        );
 
 		if ( $this->key && $this->secret ) {
 			$params['credentials']['key']    = $this->key;
