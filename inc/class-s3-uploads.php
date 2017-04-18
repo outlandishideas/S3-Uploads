@@ -159,8 +159,8 @@ class S3_Uploads {
 			return $this->s3;
 		}
 
-		$ssl = defined( 'S3_UPLOADS_SSL' ) ? boolval(S3_UPLOADS_SSL) : false;
-        
+		$ssl = defined( 'S3_UPLOADS_SSL_CERT' ) ? S3_UPLOADS_SSL_CERT : false;
+
         $params = array(
             'version' => 'latest',
             'http' => array('verify' => $ssl)
